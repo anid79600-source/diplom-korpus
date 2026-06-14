@@ -12,7 +12,7 @@ from collections import Counter
 from datetime import datetime
 
 # Yangi modul — asosiy kodga tegmasdan ulanadi
-from uzbek_nlp(1) import nlp_pipeline, is_valid_token
+from uzbek_nlp import nlp_pipeline, is_valid_token
 
 # ─────────────────────────────────────────────
 #  Sahifa sozlamalari
@@ -173,7 +173,7 @@ def process_file(uploaded_file):
         "vaqt"    : datetime.now().strftime("%H:%M:%S"),
     })
 
-    # ── YANGI: Tokenizatsiya + Lemmatizatsiya (uzbek_nlp(1) moduli) ──
+    # ── YANGI: Tokenizatsiya + Lemmatizatsiya (uzbek_nlp moduli) ──
     nlp = nlp_pipeline(clean)
     # Lemma chastotasini kumulyativ yig'amiz
     for lemma, cnt in nlp["lemma_freq"].items():
@@ -439,7 +439,7 @@ with tab3:
         st.code(export_report_txt().decode("utf-8"), language="text")
 
 # ─────────────────────────────────────────────────────────────────
-# TAB 4: Tokenizatsiya & Lemmatizatsiya (uzbek_nlp(1).py moduli)
+# TAB 4: Tokenizatsiya & Lemmatizatsiya (uzbek_nlp.py moduli)
 # ─────────────────────────────────────────────────────────────────
 with tab4:
     if not st.session_state.lemma_freq:
@@ -455,7 +455,7 @@ with tab4:
             height=80,
         )
         if st.button("Tahlil qilish", type="primary"):
-            from uzbek_nlp(1) import nlp_pipeline
+            from uzbek_nlp import nlp_pipeline
             res = nlp_pipeline(demo_input)
 
             c1, c2, c3 = st.columns(3)
