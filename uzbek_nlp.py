@@ -213,33 +213,30 @@ def morpheme_split(word: str) -> list[str]:
 #  Strategiya: qo'shimchalarni ketma-ket olib tashlash.
 # ─────────────────────────────────────────────────────────
 def lemmatize(word: str):
-
-    if word.endswith("moq"):
-        return word
-
-    lemma = word.lower()
-
-    for _ in range(4):
     """
     So'zdan qo'shimchalarni olib, asosiy shaklni qaytaradi.
     Misol:
       kitoblarni  → kitob
-      o'qimoqdalar → o'qi   (o'q + i — fe'l asosi)
+      o'qimoqdalar → o'qi
       talabalar   → talaba
     """
+
     lemma = word.lower()
+
     # Bir necha qatlam qo'shimcha kesish (maks 4 qatlam)
     for _ in range(4):
         cut = False
+
         for suf in UZ_SUFFIXES:
             if lemma.endswith(suf) and len(lemma) - len(suf) >= MIN_ROOT_LEN:
                 lemma = lemma[: -len(suf)]
                 cut = True
                 break
+
         if not cut:
             break
-    return lemma
 
+    return lemma
 
 def lemmatize_tokens(tokens: list[str]) -> list[dict]:
     """
