@@ -288,9 +288,16 @@ with st.sidebar:
         st.divider()
 
     # Korpusni tozalash
-    if st.button("🗑️ Korpusni tozalash", use_container_width=True):
-        for key in ["freq","total_tokens","total_sents",
-                    "files_log","seen_hashes","rejected"]:
+    for key in [
+    "freq",
+    "lemma_freq",
+    "nlp_details",
+    "total_tokens",
+    "total_sents",
+    "files_log",
+    "seen_hashes",
+    "rejected"
+]:
             del st.session_state[key]
         st.rerun()
 
