@@ -287,20 +287,22 @@ with st.sidebar:
             st.markdown(f"~~{r['fayl']}~~  \n_{r['sabab']}_")
         st.divider()
 
-    # Korpusni tozalash
+   # Korpusni tozalash
+if st.button("🗑️ Korpusni tozalash", use_container_width=True):
     for key in [
-    "freq",
-    "lemma_freq",
-    "nlp_details",
-    "total_tokens",
-    "total_sents",
-    "files_log",
-    "seen_hashes",
-    "rejected"
-]:
-    del st.session_state[key]
+        "freq",
+        "lemma_freq",
+        "nlp_details",
+        "total_tokens",
+        "total_sents",
+        "files_log",
+        "seen_hashes",
+        "rejected"
+    ]:
+        if key in st.session_state:
+            del st.session_state[key]
 
-st.rerun()
+    st.rerun()
 
 # ───────── ASOSIY SAHIFA ─────────
 freq   = st.session_state.freq
