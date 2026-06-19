@@ -212,7 +212,14 @@ def morpheme_split(word: str) -> list[str]:
 #  So'zning asosiy shaklini (lemmani) topadi.
 #  Strategiya: qo'shimchalarni ketma-ket olib tashlash.
 # ─────────────────────────────────────────────────────────
-def lemmatize(word: str) -> str:
+def lemmatize(word: str):
+
+    if word.endswith("moq"):
+        return word
+
+    lemma = word.lower()
+
+    for _ in range(4):
     """
     So'zdan qo'shimchalarni olib, asosiy shaklni qaytaradi.
     Misol:
