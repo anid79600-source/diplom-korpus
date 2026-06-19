@@ -298,8 +298,9 @@ with st.sidebar:
     "seen_hashes",
     "rejected"
 ]:
-            del st.session_state[key]
-        st.rerun()
+    del st.session_state[key]
+
+st.rerun()
 
 # ───────── ASOSIY SAHIFA ─────────
 freq   = st.session_state.freq
