@@ -94,7 +94,7 @@ UZ_SUFFIXES = [
     # Ko'plik
     "lar", "lar",
     # Kelishik qo'shimchalari
-    "ning", "ga", "ni", "da", "dan", "gача", "gacha",
+    "ning", "ga", "ni", "da", "dan", "gаchа", "gacha",
     # Egalik
     "im", "ing", "i", "imiz", "ingiz",
     "imni", "ingni", "ini",
@@ -127,7 +127,7 @@ UZ_SUFFIXES = sorted(set(UZ_SUFFIXES), key=len, reverse=True)
 # ─────────────────────────────────────────────────────────
 #  Minimal so'z uzunligi lemmatizatsiyadan keyin
 # ─────────────────────────────────────────────────────────
-MIN_ROOT_LEN = 2
+MIN_ROOT_LEN = 4
 
 
 # ─────────────────────────────────────────────────────────
